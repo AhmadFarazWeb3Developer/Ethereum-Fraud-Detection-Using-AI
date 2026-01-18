@@ -11,22 +11,21 @@ st.set_page_config(
 )
 
 # ------------------ Load Models ------------------
-@st.cache_resource
 def load_models():
     try:
-        with open('random_forest_model.pkl', 'rb') as f:
+        with open('App/random_forest_model.pkl', 'rb') as f:
             rf_model = pickle.load(f)
     except FileNotFoundError:
         rf_model = None
 
     try:
-        with open('logistic_regression_model.pkl', 'rb') as f:
+        with open('App/logistic_regression_model.pkl', 'rb') as f:
             lr_model = pickle.load(f)
     except FileNotFoundError:
         lr_model = None
 
     try:
-        with open('scaler.pkl', 'rb') as f:
+        with open('App/scaler.pkl', 'rb') as f:
             scaler = pickle.load(f)
     except FileNotFoundError:
         scaler = None
@@ -34,10 +33,9 @@ def load_models():
     return rf_model, lr_model, scaler
 
 # ------------------ Load Dataset ------------------
-@st.cache_resource
 def load_dataset():
     try:
-        df = pd.read_csv('Cleaned_Ethereum_Fraud_Detection.csv')
+        df = pd.read_csv('App/Cleaned_Ethereum_Fraud_Detection.csv')
         df.columns = (
             df.columns
             .str.strip()
@@ -77,8 +75,8 @@ st.markdown("""
 
 /* Number input fields */
 .stNumberInput>div>input {
-    background-color:#0f1410;
-    color:#1fffa9;
+    background-color:#ffffff;
+    color:#000000;
     border-radius:5px;
     border:1px solid #1fffa9;
     font-family: monospace;
