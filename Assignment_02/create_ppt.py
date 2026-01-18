@@ -30,51 +30,58 @@ slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Your Project Methodology"
 content = slide.placeholders[1]
-content.text = "• Load cleaned dataset using pandas\n• Perform dataset overview (shape, info, head)\n• Generate descriptive statistics with describe()\n• Analyze target variable distribution\n• Create histograms for feature distributions\n• Generate boxplots for outlier detection\n• Compute correlation matrix with heatmap visualization\n• Examine relationships with scatter plots\n• Document key findings and insights"
+content.text = "• Load cleaned dataset using pandas\n• Perform dataset overview (shape, info, head)\n• Generate descriptive statistics with describe()\n• Analyze target variable distribution\n• Create histograms for feature distributions"
 
-# Slide 5: Preprocessing Techniques
+# Slide 4.5: Your Project Methodology (continued)
+slide = prs.slides.add_slide(prs.slide_layouts[1])
+title = slide.shapes.title
+title.text = "Your Project Methodology (continued)"
+content = slide.placeholders[1]
+content.text = "• Generate boxplots for outlier detection\n• Compute correlation matrix with heatmap visualization\n• Examine relationships with scatter plots\n• Document key findings and insights"
+
+# Slide 6: Preprocessing Techniques
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Preprocessing Techniques"
 content = slide.placeholders[1]
 content.text = "• Data already cleaned in Assignment 01\n• Column name standardization applied\n• Missing values handled (filled with 0 or '0')\n• Duplicate records removed\n• Data types verified for analysis\n• Ready for EDA without additional preprocessing"
 
-# Slide 6: Models
+# Slide 7: Models
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Models"
 content = slide.placeholders[1]
 content.text = "• No predictive models developed in this EDA phase\n• Focus on understanding data patterns and distributions\n• Insights will inform model selection in Assignment 03\n• Statistical analysis rather than machine learning"
 
-# Slide 7: Results
+# Slide 8: Results
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Results"
 content = slide.placeholders[1]
 content.text = "• Dataset: 9841 rows × 49 columns\n• Class Distribution: Significant imbalance (mostly legitimate addresses)\n• Feature Distributions: Right-skewed for transaction values\n• Outliers Detected: Many features show extreme values\n• Strong correlations between transaction-related features\n• Fraudulent addresses show distinct patterns in ERC20 activities\n• Key relationships identified between total transactions and fraud likelihood"
 
-# Slide 8: Your Findings and Conclusions
+# Slide 9: Your Findings and Conclusions
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Your Findings and Conclusions"
 content = slide.placeholders[1]
 content.text = "• Fraudulent addresses exhibit abnormal transaction behaviors\n• ERC20 token interactions are strong fraud indicators\n• Class imbalance requires special handling in modeling\n• Transaction frequency and value patterns distinguish fraud\n• Dataset is suitable for supervised classification\n• EDA confirms behavioral patterns for fraud detection"
 
-# Slide 9: Deployment Strategy
+# Slide 10: Deployment Strategy
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Deployment Strategy"
 content = slide.placeholders[1]
 content.text = "• No deployment in this exploratory phase\n• Findings will guide model development in Assignment 03\n• Insights inform feature selection and preprocessing strategies"
 
-# Slide 10: Feedback and its Analysis
+# Slide 11: Feedback and its Analysis
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Feedback and its Analysis"
 content = slide.placeholders[1]
 content.text = "• No user feedback collected during EDA phase\n• Analysis is internal to data understanding\n• Feedback will be gathered during model deployment"
 
-# Slide 11: Future Goals
+# Slide 12: Future Goals
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Future Goals"

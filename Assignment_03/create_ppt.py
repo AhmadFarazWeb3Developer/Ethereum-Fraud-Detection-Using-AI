@@ -30,56 +30,77 @@ slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Your Project Methodology"
 content = slide.placeholders[1]
-content.text = "• Load and preprocess data (column cleaning)\n• Feature selection (numeric features only, exclude FLAG)\n• Train-test split with stratification (75-25)\n• Feature scaling for Logistic Regression\n• Train Logistic Regression with class balancing\n• Train Random Forest (200 estimators) with class balancing\n• Generate predictions and evaluation metrics\n• Analyze feature importance\n• Save trained models for deployment"
+content.text = "• Load and preprocess data (column cleaning)\n• Feature selection (numeric features only, exclude FLAG)\n• Train-test split with stratification (75-25)\n• Feature scaling for Logistic Regression\n• Train Logistic Regression with class balancing"
 
-# Slide 5: Preprocessing Techniques
+# Slide 4.5: Your Project Methodology (continued)
+slide = prs.slides.add_slide(prs.slide_layouts[1])
+title = slide.shapes.title
+title.text = "Your Project Methodology (continued)"
+content = slide.placeholders[1]
+content.text = "• Train Random Forest (200 estimators) with class balancing\n• Generate predictions and evaluation metrics\n• Analyze feature importance\n• Save trained models for deployment"
+
+# Slide 6: Preprocessing Techniques
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Preprocessing Techniques"
 content = slide.placeholders[1]
 content.text = "• Column Name Standardization: Lowercase, replace spaces/parentheses\n• Feature Selection: Remove 'Address' and other non-numeric columns\n• Train-Test Split: Stratified sampling to preserve class distribution\n• Feature Scaling: StandardScaler for Logistic Regression\n• Class Balancing: class_weight='balanced' for both models\n• Data Type Verification: Ensure numeric features for modeling"
 
-# Slide 6: Models
+# Slide 7: Models
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Models"
 content = slide.placeholders[1]
 content.text = "• Logistic Regression: Baseline interpretable model\n  - Max iterations: 1000\n  - Class weight: balanced\n  - Requires feature scaling\n• Random Forest Classifier: Ensemble model for complex patterns\n  - 200 estimators\n  - Class weight: balanced\n  - No scaling required\n  - Superior performance in evaluation"
 
-# Slide 7: Results
+# Slide 8: Results
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Results"
 content = slide.placeholders[1]
 content.text = "• Random Forest Performance:\n  - Accuracy: ~92%\n  - Precision: ~90%\n  - Recall: ~95%\n  - F1-Score: ~92%\n  - ROC-AUC: 0.94\n• Logistic Regression Performance:\n  - Accuracy: ~85%\n  - ROC-AUC: 0.88\n• Top Features: ERC20 transaction counts, total transactions, value metrics\n• Models saved as pickle files for deployment"
 
-# Slide 8: Your Findings and Conclusions
+# Slide 9: Your Findings and Conclusions
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Your Findings and Conclusions"
 content = slide.placeholders[1]
-content.text = "• Random Forest outperforms Logistic Regression for fraud detection\n• ERC20 token activities are strongest fraud indicators\n• Transaction frequency strongly correlates with fraud likelihood\n• Models successfully classify fraudulent addresses\n• Risk scoring possible with probability outputs\n• Automated detection can reduce manual investigation costs\n• Methodology proves effective for blockchain fraud detection"
+content.text = "• Random Forest outperforms Logistic Regression for fraud detection\n• ERC20 token activities are strongest fraud indicators\n• Transaction frequency strongly correlates with fraud likelihood\n• Models successfully classify fraudulent addresses"
 
-# Slide 9: Deployment Strategy
+# Slide 8.5: Your Findings and Conclusions (continued)
+slide = prs.slides.add_slide(prs.slide_layouts[1])
+title = slide.shapes.title
+title.text = "Your Findings and Conclusions (continued)"
+content = slide.placeholders[1]
+content.text = "• Risk scoring possible with probability outputs\n• Automated detection can reduce manual investigation costs\n• Methodology proves effective for blockchain fraud detection"
+
+# Slide 11: Deployment Strategy
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Deployment Strategy"
 content = slide.placeholders[1]
 content.text = "• Models serialized using pickle format\n• Random Forest selected as primary model\n• Feature scaler saved for Logistic Regression\n• Models transferred to Assignment 04 for deployment\n• Web application planned using Streamlit framework\n• User interface for real-time fraud prediction"
 
-# Slide 10: Feedback and its Analysis
+# Slide 12: Feedback and its Analysis
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Feedback and its Analysis"
 content = slide.placeholders[1]
 content.text = "• No user feedback collected during model development\n• Internal validation through cross-evaluation metrics\n• Model performance validated against test set\n• Feedback will be collected during deployment phase"
 
-# Slide 11: Future Goals
+# Slide 13: Future Goals
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Future Goals"
 content = slide.placeholders[1]
-content.text = "• Deploy models using Streamlit web application\n• Collect user feedback on model usability and accuracy\n• Implement additional features for better predictions\n• Improve UI based on user suggestions\n• Add probability-based risk scoring\n• Extend to other blockchain networks\n• Continuous model updates with new data"
+content.text = "• Deploy models using Streamlit web application\n• Collect user feedback on model usability and accuracy\n• Implement additional features for better predictions\n• Improve UI based on user suggestions"
+
+# Slide 11.5: Future Goals (continued)
+slide = prs.slides.add_slide(prs.slide_layouts[1])
+title = slide.shapes.title
+title.text = "Future Goals (continued)"
+content = slide.placeholders[1]
+content.text = "• Add probability-based risk scoring\n• Extend to other blockchain networks\n• Continuous model updates with new data"
 
 # Save the presentation
 prs.save('Assignment_03_Presentation.pptx')

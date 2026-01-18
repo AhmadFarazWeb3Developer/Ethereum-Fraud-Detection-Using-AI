@@ -30,51 +30,58 @@ slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Your Project Methodology"
 content = slide.placeholders[1]
-content.text = "• Step 1: Import necessary libraries (pandas)\n• Step 2: Load the dataset using pd.read_csv()\n• Step 3: Examine dataset structure (shape, head, dtypes)\n• Step 4: Check for missing values in numeric and object columns\n• Step 5: Identify and handle duplicate records\n• Step 6: Clean null, empty, and invalid values\n• Step 7: Save the cleaned dataset"
+content.text = "• Step 1: Import necessary libraries (pandas)\n• Step 2: Load the dataset using pd.read_csv()\n• Step 3: Examine dataset structure (shape, head, dtypes)\n• Step 4: Check for missing values in numeric and object columns"
 
-# Slide 5: Preprocessing Techniques
+# Slide 4.5: Your Project Methodology (continued)
+slide = prs.slides.add_slide(prs.slide_layouts[1])
+title = slide.shapes.title
+title.text = "Your Project Methodology (continued)"
+content = slide.placeholders[1]
+content.text = "• Step 5: Identify and handle duplicate records\n• Step 6: Clean null, empty, and invalid values\n• Step 7: Save the cleaned dataset"
+
+# Slide 6: Preprocessing Techniques
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Preprocessing Techniques"
 content = slide.placeholders[1]
 content.text = "• Missing Value Handling: Fill numeric NaNs with 0, object NaNs with '0'\n• String Cleaning: Strip whitespace and replace empty strings with '0'\n• Duplicate Removal: Check for duplicate addresses (found 25 duplicates)\n• Data Type Consistency: Ensure proper data types for analysis\n• Column Standardization: Clean column names for consistency"
 
-# Slide 6: Models
+# Slide 7: Models
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Models"
 content = slide.placeholders[1]
 content.text = "• No machine learning models developed in this assignment\n• Focus was on data preparation\n• Models will be built in subsequent assignments using the cleaned data"
 
-# Slide 7: Results
+# Slide 8: Results
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Results"
 content = slide.placeholders[1]
 content.text = "• Dataset Shape: 9841 rows × 49 columns\n• No duplicate records found across all columns\n• 25 duplicate addresses identified\n• Missing values handled appropriately\n• Cleaned dataset saved as 'Cleaned_Ethereum_Fraud_Detection.csv'\n• Data ready for exploratory data analysis"
 
-# Slide 8: Your Findings and Conclusions
+# Slide 9: Your Findings and Conclusions
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Your Findings and Conclusions"
 content = slide.placeholders[1]
 content.text = "• Dataset contains comprehensive transactional features\n• Minimal data quality issues found\n• FLAG column has no missing values, indicating reliable target variable\n• ERC20 token interactions show some missing data patterns\n• Data cleaning preserved all important information\n• Foundation established for fraud detection analysis"
 
-# Slide 9: Deployment Strategy
+# Slide 10: Deployment Strategy
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Deployment Strategy"
 content = slide.placeholders[1]
 content.text = "• No deployment in this assignment\n• Cleaned data will be used in Assignment 02 for EDA\n• Data quality ensures reliable model training in future assignments"
 
-# Slide 10: Feedback and its Analysis
+# Slide 11: Feedback and its Analysis
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Feedback and its Analysis"
 content = slide.placeholders[1]
 content.text = "• No user feedback collected in this data collection phase\n• Feedback will be gathered in later assignments during deployment"
 
-# Slide 11: Future Goals
+# Slide 12: Future Goals
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Future Goals"

@@ -30,56 +30,70 @@ slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Your Project Methodology"
 content = slide.placeholders[1]
-content.text = "• Load pre-trained models using pickle\n• Develop Streamlit web application\n• Implement user input interface for transaction features\n• Process inputs and generate predictions\n• Display results with probability scores and risk visualization\n• Compare Random Forest and Logistic Regression outputs\n• Collect user feedback via structured forms\n• Analyze feedback themes and prioritize improvements"
+content.text = "• Load pre-trained models using pickle\n• Develop Streamlit web application\n• Implement user input interface for transaction features\n• Process inputs and generate predictions"
 
-# Slide 5: Preprocessing Techniques
+# Slide 4.5: Your Project Methodology (continued)
+slide = prs.slides.add_slide(prs.slide_layouts[1])
+title = slide.shapes.title
+title.text = "Your Project Methodology (continued)"
+content = slide.placeholders[1]
+content.text = "• Display results with probability scores and risk visualization\n• Compare Random Forest and Logistic Regression outputs\n• Collect user feedback via structured forms\n• Analyze feedback themes and prioritize improvements"
+
+# Slide 6: Preprocessing Techniques
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Preprocessing Techniques"
 content = slide.placeholders[1]
 content.text = "• Model Loading: Deserialize pickle files from Assignment 03\n• Feature Consistency: Maintain same column order as training\n• Input Validation: Ensure numeric inputs for transaction features\n• Scaling Application: Use saved scaler for Logistic Regression\n• Data Formatting: Convert user inputs to numpy arrays\n• Error Handling: Graceful handling of missing models or invalid inputs"
 
-# Slide 6: Models
+# Slide 7: Models
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Models"
 content = slide.placeholders[1]
 content.text = "• Primary Model: Random Forest Classifier (200 estimators)\n  - Superior performance (ROC-AUC: 0.94)\n  - Better recall for fraud detection\n  - No feature scaling required\n• Baseline Model: Logistic Regression\n  - Interpretable results\n  - Requires StandardScaler\n  - Used for model comparison\n• Selection Criteria: Performance, recall, and deployment simplicity"
 
-# Slide 7: Results
+# Slide 8: Results
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Results"
 content = slide.placeholders[1]
 content.text = "• Successful Streamlit deployment\n• Web interface accepts 4 key features:\n  - Total Transactions\n  - Total ETH Received\n  - Average Transaction Value\n  - Number of ERC20 Tokens\n• Real-time predictions with probability scores\n• Risk visualization with progress bars\n• Model comparison table (RF vs LR)\n• Application ready for local execution"
 
-# Slide 8: Your Findings and Conclusions
+# Slide 9: Your Findings and Conclusions
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Your Findings and Conclusions"
 content = slide.placeholders[1]
 content.text = "• Successful transition from model development to deployment\n• Streamlit provides effective platform for ML deployment\n• User interface enables practical fraud risk assessment\n• Model performance maintained in production environment\n• Feedback collection reveals usability and feature improvement opportunities\n• Complete data science lifecycle demonstrated\n• Foundation established for iterative model improvements"
 
-# Slide 9: Deployment Strategy
+# Slide 10: Deployment Strategy
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Deployment Strategy"
 content = slide.placeholders[1]
 content.text = "• Local Streamlit Application\n• Command: streamlit run app.py\n• User Interface: Web-based form for input\n• Real-time Processing: Immediate prediction results\n• Model Serialization: Pickle format for model persistence\n• Scalability: Suitable for academic and small-scale production use\n• Future: Could extend to cloud deployment (Heroku, AWS)"
 
-# Slide 10: Feedback and its Analysis
+# Slide 11: Feedback and its Analysis
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Feedback and its Analysis"
 content = slide.placeholders[1]
 content.text = "• Feedback collected from 15+ users via Google Forms\n• Key Themes:\n  - Usability improvements requested\n  - Additional input features suggested\n  - UI clarity enhancements needed\n  - Probability-based risk scoring valued\n• Analysis: Prioritized accuracy and usability improvements\n• Common Suggestions: More features, better explanations, enhanced UI"
 
-# Slide 11: Future Goals
+# Slide 12: Future Goals
 slide = prs.slides.add_slide(prs.slide_layouts[1])
 title = slide.shapes.title
 title.text = "Future Goals"
 content = slide.placeholders[1]
-content.text = "• Version 2.0 Development:\n  - Add more input features for better accuracy\n  - Improve UI with tooltips and better explanations\n  - Implement advanced risk scoring algorithms\n  - Add batch processing capabilities\n• Model Improvements:\n  - Regular retraining with new data\n  - Hyperparameter optimization\n  - Ensemble model development\n• Deployment Enhancements:\n  - Cloud deployment (Heroku, Streamlit Cloud)\n  - API development for integration\n  - Mobile application development"
+content.text = "• Version 2.0 Development:\n  - Add more input features for better accuracy\n  - Improve UI with tooltips and better explanations\n  - Implement advanced risk scoring algorithms\n  - Add batch processing capabilities\n• Model Improvements:\n  - Regular retraining with new data\n  - Hyperparameter optimization\n  - Ensemble model development"
+
+# Slide 11.5: Future Goals (continued)
+slide = prs.slides.add_slide(prs.slide_layouts[1])
+title = slide.shapes.title
+title.text = "Future Goals (continued)"
+content = slide.placeholders[1]
+content.text = "• Deployment Enhancements:\n  - Cloud deployment (Heroku, Streamlit Cloud)\n  - API development for integration\n  - Mobile application development"
 
 # Save the presentation
 prs.save('Assignment_04_Presentation.pptx')
