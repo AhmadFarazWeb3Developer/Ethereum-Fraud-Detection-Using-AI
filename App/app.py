@@ -5,7 +5,7 @@ import pickle
 
 # ------------------ Page Config ------------------
 st.set_page_config(
-    page_title="Ethereum Fraud Detection",
+    page_title="Ethereum Address Risk Assessment",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -13,19 +13,19 @@ st.set_page_config(
 # ------------------ Load Models ------------------
 def load_models():
     try:
-        with open('App/random_forest_model.pkl', 'rb') as f:
+        with open('random_forest_model.pkl', 'rb') as f:
             rf_model = pickle.load(f)
     except FileNotFoundError:
         rf_model = None
 
     try:
-        with open('App/logistic_regression_model.pkl', 'rb') as f:
+        with open('logistic_regression_model.pkl', 'rb') as f:
             lr_model = pickle.load(f)
     except FileNotFoundError:
         lr_model = None
 
     try:
-        with open('App/scaler.pkl', 'rb') as f:
+        with open('scaler.pkl', 'rb') as f:
             scaler = pickle.load(f)
     except FileNotFoundError:
         scaler = None
@@ -35,7 +35,7 @@ def load_models():
 # ------------------ Load Dataset ------------------
 def load_dataset():
     try:
-        df = pd.read_csv('App/Cleaned_Ethereum_Fraud_Detection.csv')
+        df = pd.read_csv('Cleaned_Ethereum_Fraud_Detection.csv')
         df.columns = (
             df.columns
             .str.strip()
@@ -57,60 +57,131 @@ feature_columns = features_df.columns.tolist() if features_df is not None else [
 
 # ------------------ Styling ------------------
 st.markdown("""
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+""", unsafe_allow_html=True)
+
+st.markdown("""
 <style>
-/* Background and font */
-.stApp {background-color:#0f1410; color:#1fffa9; font-family:'Segoe UI', sans-serif;}
+* {
+    color: white !important;
+}
 
-/* Header box */
+.stApp {
+    background: #050117 !important;
+}
+
+section[data-testid="stSidebar"] {
+    background: #050117 !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .header-box {
-    background-color:#0f1410;
-    padding:25px;
-    border-radius:12px;
-    border-left:6px solid #1fffa9;
-    margin-bottom:20px;
-}
-.header-box h1 {font-size:2.5rem; font-weight:bold; margin:0; color:#1fffa9;}
-.header-box p {font-size:1.1rem; margin:5px 0; color:#1fffa9;}
-.header-box small {font-size:0.85rem; color:#ffffff;}
-
-/* Number input fields */
-.stNumberInput>div>input {
-    background-color:#ffffff;
-    color:#000000;
-    border-radius:5px;
-    border:1px solid #1fffa9;
-    font-family: monospace;
+    background: #050117;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 24px;
 }
 
-/* Info box */
-.stInfo {
-    background-color:#0f1410;
-    border-left:4px solid #1fffa9;
-    border-radius:5px;
-    padding:10px;
-    margin-bottom:20px;
-    color:#1fffa9;
+.header-box h1 {
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin: 0;
 }
 
-/* Prediction card */
+.header-box p {
+    margin-top: 8px;
+    font-size: 1rem;
+}
+
+[data-testid="stMetric"] {
+    background: #050117;
+    padding: 16px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stNumberInput > div > div {
+    background: #050117;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.stNumberInput > div > input {
+    background: #050117;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.stButton > button {
+    background: #050117;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 12px 24px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 100%;
+    margin-top: 16px;
+}
+
+.stButton > button:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
 .pred-card {
-    background-color:#0f1410;
-    border-radius:10px;
-    padding:20px;
-    margin-bottom:15px;
-    border-left:5px solid #1fffa9;
+    background: #050117;
+    border-radius: 8px;
+    padding: 32px;
+    margin: 32px auto;
+    max-width: 800px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
-.pred-card h3 {font-size:1.8rem; margin:0; color:#1fffa9;}
-.pred-card p {font-size:1rem; color:#ffffff;}
+
+.pred-card h3 {
+    font-size: 1.8rem;
+    margin: 0 0 8px 0;
+    font-weight: 600;
+    text-align: center;
+}
+
+.pred-card p {
+    font-size: 1.1rem;
+    margin: 0;
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+}
+
+table {
+    background: #050117;
+    border-radius: 6px;
+    width: 100%;
+}
+
+th {
+    padding: 12px;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+td {
+    padding: 10px 12px;
+    font-family: 'Roboto Mono', monospace;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 24px 0;
+}
 </style>
 """, unsafe_allow_html=True)
 
-# ------------------ Header ------------------
+# --------------- Header ------------------
 st.markdown("""
 <div class="header-box">
-    <h1>Ethereum Fraud Detection</h1>
-    <p>AI-Powered Fraud Detection using Machine Learning</p>
-    <small>Trained on 9,843 Ethereum addresses</small>
+    <h1>Ethereum Address Risk Assessment</h1>
+    <p>Ethereum Address Risk Assessment using Machine Learning</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -155,7 +226,6 @@ if len(available_essential) < 3:
     available_essential = {feature_columns[i]: f"Feature {i+1}" 
                            for i in range(min(5, len(feature_columns)))}
 
-
 user_inputs_display = {}
 col_a, col_b = st.columns(2)
 for idx, (feature, label) in enumerate(available_essential.items()):
@@ -179,11 +249,6 @@ for feature in feature_columns:
 st.divider()
 predict_button = st.button('Predict Fraud Risk')
 
-def fraud_color_bar(prob):
-    red = int(255*prob)
-    green = int(255*(1-prob))
-    return f"rgb({red},{green},0)"
-
 if predict_button:
     if rf_model is None or not feature_columns:
         st.error("Model or features not loaded correctly.")
@@ -196,9 +261,11 @@ if predict_button:
         fraud_prob = rf_prob[1]
 
         # Prediction Card
+        result_text = 'FRAUDULENT - HIGH RISK' if rf_pred==1 else 'LEGITIMATE - LOW RISK'
+      
         st.markdown(f"""
-        <div class="pred-card" style="border-left:6px solid {fraud_color_bar(fraud_prob)}">
-            <h3>{'FRAUDULENT - HIGH RISK' if rf_pred==1 else 'LEGITIMATE - LOW RISK'}</h3>
+        <div class="pred-card" style="">
+            <h3>{result_text}</h3>
             <p>Fraud Probability: {fraud_prob:.1%}</p>
         </div>
         """, unsafe_allow_html=True)
@@ -214,5 +281,5 @@ if predict_button:
                                'Fraudulent' if lr_pred==1 else 'Legitimate'],
                 'Fraud Probability': [f"{rf_prob[1]:.1%}", f"{lr_prob[1]:.1%}"]
             })
-            st.markdown("<h4 style='color:#1fffa9;'>Model Comparison</h4>", unsafe_allow_html=True)
+            st.markdown("<h4>Model Comparison</h4>", unsafe_allow_html=True)
             st.table(comp_df)
